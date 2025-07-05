@@ -1,0 +1,44 @@
+# Ignore build directory
+build/
+
+# Ignore Visual Studio files
+*.sln
+*.vcxproj*
+*.user
+*.opensdf
+*.sdf
+*.VC.db
+
+# Ignore Mac/Linux hidden files
+.DS_Store
+
+# Ignore Windows hidden files
+Thumbs.db
+
+# Ignore compiled object files
+*.obj
+*.o
+
+# Ignore compiled binary files
+*.exe
+*.out
+
+# Ignore CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+
+# Ignore test build artifacts
+Testing/
+CTestTestfile.cmake
+
+# Ignore Visual Studio Code settings
+.vscode/
+
+# Ignore package manager files
+conanbuildinfo.*
