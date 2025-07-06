@@ -21,6 +21,7 @@ int main() {
     cin >> income;
 
     cout << '\n';
+    income = (income - floor(income) <= 0.5) ? floor(income) : floor(income) + 1; 
     taxCalculator(income);
 
     return 0;
