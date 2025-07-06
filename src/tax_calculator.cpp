@@ -1,4 +1,5 @@
 // tax_calculator.cpp
+
 #include "tax_calculator.h"
 #include <iostream>
 #include <iomanip>
@@ -24,6 +25,14 @@ const int COL1_WIDTH = 55;
 const int COL2_WIDTH = 50;
 const int COL3_WIDTH = 28;
 
+/**
+ * @brief Formats a numeric money value into a currency string.
+ * 
+ * Formats the given money amount to two decimal places with a dollar sign.
+ * 
+ * @param money The amount of money to format.
+ * @return A string representing the formatted currency.
+ */
 string moneyFormat(double money) {
     ostringstream oss;
     oss.imbue(locale("en_US.UTF-8"));
@@ -31,14 +40,38 @@ string moneyFormat(double money) {
     return "$" + oss.str();
 }
 
+/**
+ * @brief Calculates the tax for a given income and tax rate.
+ * 
+ * Multiplies the income by the rate percentage to compute the tax.
+ * 
+ * @param rate The tax rate in percent (e.g., 17.5 for 17.5%).
+ * @param income The income amount.
+ * @return The tax calculated.
+ */
 double findPercentage(double rate, double income) {
     return income * (rate / 100);
 }
 
+/**
+ * @brief Prints the total tax amount to the console.
+ * 
+ * Uses moneyFormat to display the total tax in currency format.
+ * 
+ * @param total The total tax amount.
+ */
 void totalString(double total) {
     cout << "Total Tax : " << moneyFormat(total) << endl;
 }
 
+/**
+ * @brief Calculates and displays the income tax based on income brackets.
+ * 
+ * Given an income amount, this function computes the total tax owed based on
+ * progressive tax brackets and prints a breakdown of how the tax is applied.
+ * 
+ * @param income The total income of the user.
+ */
 void taxCalculator(double income) {
     double remainingIncome = income;
     double tax = 0.0;
