@@ -15,7 +15,9 @@ using namespace std;
  */
 int main() {
     double income;
+    cout << "Using tax rates of 01 April 2025 - 31 March 2026 \n";
     cout << "Type your income (no spaces or commas): ";
+    cout << "\n";
     cin >> income;
 
     cout << '\n';

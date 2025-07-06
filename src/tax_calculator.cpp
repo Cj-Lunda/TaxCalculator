@@ -4,6 +4,7 @@
 #include <iostream>
 #include <iomanip>
 #include <sstream>
+#include <cmath>
 #include <locale>
 
 using namespace std;
@@ -13,6 +14,7 @@ const double firstRateMax = 15600;
 const double secondRateMax = 53500;
 const double thirdRateMax = 78100;
 const double fourthRateMax = 180000;
+double total = 0.0;
 
 // Global tax rate strings
 const string rateOne = "below $15,600.00,                      tax:10.50% ";
@@ -50,7 +52,9 @@ string moneyFormat(double money) {
  * @return The tax calculated.
  */
 double findPercentage(double rate, double income) {
-    return income * (rate / 100);
+    double result = income * (rate / 100);
+    result = ceil(result * 100) / 100.0;
+    return result;
 }
 
 /**
@@ -87,21 +91,26 @@ void taxCalculator(double income) {
         cout << left << setw(COL1_WIDTH) << rateOne
              << left << setw(COL2_WIDTH) << moneyFormat(remainingIncome)
              << left << setw(COL3_WIDTH) << moneyFormat(tax) << endl;
+        total += tax;
+
     }
     else if (income <= secondRateMax) {
         remainingIncome = income - firstRateMax;
-        tax = 1638 + findPercentage(17.5, remainingIncome);
+        tax = findPercentage(17.5, remainingIncome);
         cout << left << setw(COL1_WIDTH) << rateOne
              << left << setw(COL2_WIDTH) << moneyFormat(firstRateMax)
              << left << setw(COL3_WIDTH) << moneyFormat(1638) << endl;
 
         cout << left << setw(COL1_WIDTH) << rateTwo
              << left << setw(COL2_WIDTH) << moneyFormat(remainingIncome)
-             << left << setw(COL3_WIDTH) << moneyFormat(tax - 1638) << endl;
+             << left << setw(COL3_WIDTH) << moneyFormat(tax) << endl;
+        //cout << 'remainderTax' << tax;
+        cout << tax;
+        total = 1638 + tax;
     }
     else if (income <= thirdRateMax) {
         remainingIncome = income - secondRateMax;
-        tax = 8270 + findPercentage(30, remainingIncome);
+        tax = findPercentage(30, remainingIncome);
 
         cout << left << setw(COL1_WIDTH) << rateOne
              << left << setw(COL2_WIDTH) << moneyFormat(firstRateMax)
@@ -113,11 +122,12 @@ void taxCalculator(double income) {
 
         cout << left << setw(COL1_WIDTH) << rateThree
              << left << setw(COL2_WIDTH) << moneyFormat(remainingIncome)
-             << left << setw(COL3_WIDTH) << moneyFormat(tax - 8270) << endl;
+             << left << setw(COL3_WIDTH) << moneyFormat(tax) << endl;
+        total = 1638 + 6632 + tax;
     }
     else if (income <= fourthRateMax) {
         remainingIncome = income - thirdRateMax;
-        tax = 15650 + findPercentage(33, remainingIncome);
+        tax = findPercentage(33, remainingIncome);
 
         cout << left << setw(COL1_WIDTH) << rateOne
              << left << setw(COL2_WIDTH) << moneyFormat(firstRateMax)
@@ -133,11 +143,12 @@ void taxCalculator(double income) {
 
         cout << left << setw(COL1_WIDTH) << rateFour
              << left << setw(COL2_WIDTH) << moneyFormat(remainingIncome)
-             << left << setw(COL3_WIDTH) << moneyFormat(tax - 15650) << endl;
+             << left << setw(COL3_WIDTH) << moneyFormat(tax) << endl;
+             total = 1638 + 6632 + 7380 + tax;
     }
     else {
         remainingIncome = income - fourthRateMax;
-        tax = 49227 + findPercentage(39, remainingIncome);
+        tax = findPercentage(39, remainingIncome);
 
         cout << left << setw(COL1_WIDTH) << rateOne
              << left << setw(COL2_WIDTH) << moneyFormat(firstRateMax)
@@ -157,8 +168,9 @@ void taxCalculator(double income) {
 
         cout << left << setw(COL1_WIDTH) << rateFive
              << left << setw(COL2_WIDTH) << moneyFormat(remainingIncome)
-             << left << setw(COL3_WIDTH) << moneyFormat(tax - 49227) << endl;
+             << left << setw(COL3_WIDTH) << moneyFormat(tax) << endl;
+             total = 1638 + 6632 + 7380 + 33627 + tax;
     }
-
-    totalString(tax);
+    cout << '\n';
+    totalString(total);
 }
