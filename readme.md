@@ -6,7 +6,7 @@ A simple C++ tax calculator application with unit tests using Google Test.
 
 ```
 TaxCalculator/
-├── build/              # Build output (created by CMake)
+├── build/              # Build 
 ├── include/            # Header files
 │   └── tax_calculator.h
 ├── src/                # Source files
@@ -30,8 +30,8 @@ TaxCalculator/
 
 ```powershell
 cd path\to\TaxCalculator
-mkdir build
-cd build
+mkdir build (if you have already done this ( its not your first time running) skip this)
+cd build 
 cmake ..
 cmake --build . --config Debug
 .\Debug\TaxCalculatorApp.exe
@@ -41,7 +41,7 @@ cmake --build . --config Debug
 
 ```powershell
 cd path\to\TaxCalculator
-mkdir build
+mkdir build (if you have already done this ( its not your first time running) skip this)
 cd build
 cmake ..
 cmake --build . --config Debug
@@ -72,7 +72,6 @@ make
 
 ```bash
 cd path/to/TaxCalculator/build
-cd path/to/TaxCalculator
 mkdir build
 cd build
 cmake ..
