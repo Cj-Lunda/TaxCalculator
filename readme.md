@@ -40,8 +40,12 @@ cmake --build . --config Debug
 ### Build & Run Tests:
 
 ```powershell
-cd path\to\TaxCalculator\build
-ctest -C Debug
+cd path\to\TaxCalculator
+mkdir build
+cd build
+cmake ..
+cmake --build . --config Debug
+.\Debug\TaxCalculatorTests.exe
 ```
 
 ---
@@ -68,7 +72,13 @@ make
 
 ```bash
 cd path/to/TaxCalculator/build
-ctest
+cd path/to/TaxCalculator
+mkdir build
+cd build
+cmake ..
+make
+./TaxCalculatorTests
+
 ```
 
 ---
