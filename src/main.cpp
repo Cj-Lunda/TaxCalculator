@@ -13,13 +13,13 @@ using namespace std;
  * 
  * @return int Returns 0 upon successful completion.
  */
+
 int main() {
     double income;
     cout << "Using tax rates of 01 April 2025 - 31 March 2026 \n";
-    cout << "Type your income (no spaces or commas): ";
+    cout << "Type your income (no spaces or commas, dont include cents): \n";
     cout << "\n";
     cin >> income;
-
     cout << '\n';
     income = (income - floor(income) <= 0.5) ? floor(income) : floor(income) + 1; 
    
