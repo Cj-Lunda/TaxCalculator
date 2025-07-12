@@ -6,7 +6,11 @@ A simple C++ tax calculator application with unit tests using Google Test.
 
 ```
 TaxCalculator/
-├── build/              # Build will be created with the mkdir command
+├── build/              # Build directory created with mkdir
+├── extern/             # External libraries
+│   ├── imgui/          # ImGui source and headers
+│   ├── sdl2/           # SDL2 includes and libs
+│   └── glad/           # GLAD OpenGL loader
 ├── include/            # Header files
 │   └── tax_calculator.h
 ├── src/                # Source files
@@ -15,6 +19,7 @@ TaxCalculator/
 ├── tests/              # Unit tests
 │   └── TaxCalculatorTest.cpp
 └── CMakeLists.txt
+
 ```
 
 ---
@@ -29,23 +34,23 @@ TaxCalculator/
 ### Build & Run Application:
 
 ```powershell
-cd path\to\TaxCalculator
-mkdir build  #(if you have already done this ( its not your first time running and already have a build folder) skip mkdir build)
-cd build 
-cmake ..
-cmake --build . --config Debug
-.\Debug\TaxCalculatorApp.exe
+cd path\to\TaxCalculator #(set the current directory to the cloned repo)
+mkdir build  #(skip if you have already done this (already have a build folder)
+cd build  #(set your current directory to be inside the build folder)
+cmake ..  #(run the cmake file)
+cmake --build . --config Debug  #(build)
+.\Debug\TaxCalculatorApp.exe  #(run the app)
 ```
 
 ### Build & Run Tests:
 
 ```powershell
-cd path\to\TaxCalculator
-mkdir build #(if you have already done this ( its not your first time running and already have a build folder) skip mkdir build)
-cd build
-cmake ..
-cmake --build . --config Debug
-.\Debug\TaxCalculatorTests.exe
+cd path\to\TaxCalculator #(set the current directory to the cloned repo)
+mkdir build #(skip if you have already done this (already have a build folder)
+cd build #(set your current directory to be inside the build folder)
+cmake .. #(run the cmake file)
+cmake --build . --config Debug  #(build)
+.\Debug\TaxCalculatorTests.exe #(run the tests)
 ```
 
 ---
@@ -60,23 +65,23 @@ cmake --build . --config Debug
 ### Build & Run Application:
 
 ```bash
-cd path/to/TaxCalculator
-mkdir build #(if you have already done this ( its not your first time running and already have a build folder) skip mkdir build)
-cd build
-cmake ..
-make
-./TaxCalculatorApp
+cd path/to/TaxCalculator #(set the current directory to the cloned repo)
+mkdir build #(skip if you have already done this (already have a build folder)
+cd build  #(set your current directory to be inside the build folder)
+cmake .. #(run the cmake file)
+make     #(build)
+./TaxCalculatorApp #(run the app)
 ```
 
 ### Build & Run Tests:
 
 ```bash
-cd path/to/TaxCalculator/build
-mkdir build #(if you have already done this ( its not your first time running and already have a build folder) skip mkdir build)
-cd build
-cmake ..
-make
-./TaxCalculatorTests
+cd path/to/TaxCalculator #(set the current directory to the cloned repo)
+mkdir build #(skip if you have already done this (already have a build folder)
+cd build #(set your current directory to be inside the build folder)
+cmake .. #(run the cmake file)
+make     #(build)
+./TaxCalculatorTests #(run the tests)
 
 ```
 
