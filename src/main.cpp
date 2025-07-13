@@ -26,7 +26,7 @@ int main(int, char**) {
 
     SDL_Window* window = SDL_CreateWindow("NZ Tax Calculator",
         SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-        900, 600, SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
+        1000, 600, SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
     SDL_GLContext gl_context = SDL_GL_CreateContext(window);
     SDL_GL_MakeCurrent(window, gl_context);
     SDL_GL_SetSwapInterval(1); // Enable vsync
@@ -64,10 +64,10 @@ int main(int, char**) {
         ImGui_ImplSDL2_NewFrame();          // <-- Call without argument here
         ImGui_ImplOpenGL3_NewFrame();
         ImGui::NewFrame();
-        ImGui::SetNextWindowPos(ImVec2(30, 80), ImGuiCond_Always);
+        ImGui::SetNextWindowPos(ImVec2(40, 80), ImGuiCond_Always);
         ImGui::SetNextWindowSize(ImVec2(900, 900), ImGuiCond_FirstUseEver);
         ImGui::Begin("NZ Tax Calculator");
-        ImGui::Text("Enter your income (whole dollars, no cents):");
+        ImGui::Text("Enter your income (whole dollars, no cents): [Tax rates 01 April 2025 - 31 March 2026]");
 
         static char incomeBuffer[64] = "";
         ImGui::InputText("Income", incomeBuffer, IM_ARRAYSIZE(incomeBuffer), ImGuiInputTextFlags_CharsDecimal);

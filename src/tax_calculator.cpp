@@ -26,24 +26,26 @@ const int COL3_WIDTH = 28;
 
 string moneyFormat(double money) {
     ostringstream oss;
-    oss.imbue(locale(""));
     oss << fixed << setprecision(2) << money;
     string numStr = oss.str();
 
+    // Split into integer and decimal parts
     size_t dotPos = numStr.find('.');
     string intPart = numStr.substr(0, dotPos);
-    string decPart = numStr.substr(dotPos);
+    string decPart = numStr.substr(dotPos); // includes the decimal point
 
-    string result;
+    // Manually insert commas into integer part
+    string formattedInt;
     int count = 0;
     for (auto it = intPart.rbegin(); it != intPart.rend(); ++it) {
-        if (count && count % 3 == 0)
-            result.insert(0, ",");
-        result.insert(0, 1, *it);
+        if (count > 0 && count % 3 == 0) {
+            formattedInt.insert(0, ",");
+        }
+        formattedInt.insert(0, 1, *it);
         count++;
     }
-    result += decPart;
-    return "$" + result;
+
+    return "$" + formattedInt + decPart;
 }
 
 double findPercentage(double rate, double income) {
